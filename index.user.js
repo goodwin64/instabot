@@ -11,12 +11,13 @@
 (function() {
   'use strict';
 
+  console.debug('InstaBot start');
   setInterval(likePosts, 100);
 
   const defaultElement = document.createElement('div');
 
   function likePosts() {
-    const heartsLike = Array.from(document.querySelectorAll('[class*="glyphsSpriteHeart"][aria-label="Like"]') || []);
+    const heartsLike = Array.from(document.querySelectorAll('[aria-label="Like"]') || []);
     heartsLike.forEach((h, index) => {
       setTimeout(() => {
         const articleParentElement = h.closest('article') || defaultElement;
@@ -24,8 +25,8 @@
         if (usernameElement) {
           console.log('like:', usernameElement.innerText);
         }
-        if (h) {
-          h.click();
+        if (h && h.parentElement) {
+          h.parentElement.click();
         }
       }, index * 5000);
     });
