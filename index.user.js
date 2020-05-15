@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         InstaBot
+// @name         InstagramPostsLiker
 // @namespace    http://tampermonkey.net/
 // @version      0.1.1
-// @description  try to take over the world!
+// @description  Clicks "like" button when sees it. Just scroll the page as you usually do.
 // @author       goodwin64
 // @match        https://www.instagram.com/*
 // @grant        none
@@ -18,7 +18,7 @@
 
   function likePosts() {
     const likeSelectors = ['Like', 'Подобається']
-      .map(word => `[aria-label="${word}"]`)
+      .map(word => `[aria-label="${word}"][width="24"]`)
       .join(',');
     const heartsLike = Array.from(document.querySelectorAll(likeSelectors) || []);
     heartsLike.forEach((h, index) => {
