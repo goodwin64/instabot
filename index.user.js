@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         InstagramPostsLiker
 // @namespace    http://tampermonkey.net/
-// @version      0.1.1
+// @version      0.1.2
 // @description  Clicks "like" button when sees it. Just scroll the page as you usually do.
 // @author       goodwin64
 // @match        https://www.instagram.com/*
